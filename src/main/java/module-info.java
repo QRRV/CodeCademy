@@ -1,4 +1,4 @@
-module com.example.codecademy {
+    module com.example.codecademy {
     requires javafx.controls;
     requires javafx.fxml;
 
