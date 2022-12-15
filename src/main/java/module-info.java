@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 module com.example.codecademy {
+=======
+    module com.example.codecademy {
+>>>>>>> databaseConnection
     requires javafx.controls;
     requires javafx.fxml;
 
