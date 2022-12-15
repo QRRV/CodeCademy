@@ -3,6 +3,7 @@ import com.example.codecademy.Domain.*;
 
 import java.sql.ResultSet;
 import java.sql.*;
+import java.util.ArrayList;
 
 public class CourseRepository {
     DatabaseConnection connection = new DatabaseConnection();
@@ -18,6 +19,28 @@ public class CourseRepository {
 
         return result;
 
+    }
+    public ArrayList<Course> getCourses() throws SQLException {
+        if (!connection.connectionIsOpen())
+            connection.openConnection();
+
+        ResultSet result = connection
+                .executeSQLSelectStatement("SELECT * FROM course");
+
+
+        ArrayList<Course> courses = new ArrayList<>();
+        while (result.next()) {
+            Course returningCourse = new Course();
+            returningCourse.setCourseName(result.getString("courseName"));
+            returningCourse.setSubject("TODO");
+            returningCourse.setIntroductionText("TODO");
+            returningCourse.setLevel(result.getString("status"));
+            returningCourse.setInterest(result.getString("recommendedCourse"));
+
+            courses.add(returningCourse);
+        }
+        connection.closeConnection();
+        return courses;
     }
     public boolean createCourse(String courseID,Date dateTime,String level, String recommandation) {
         if (!connection.connectionIsOpen())

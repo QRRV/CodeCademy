@@ -7,7 +7,7 @@ public class Course {
     private String subject;
     private String introductionText;
     private String level;
-    private ArrayList<Course> interest = new ArrayList<>();
+    private String interest;
 
     public String getCourseName() {
         return courseName;
@@ -41,15 +41,22 @@ public class Course {
         this.level = level;
     }
 
-    public ArrayList<Course> getInterest() {
+    public String getInterest() {
         return interest;
     }
 
-    public void setInterest(ArrayList<Course> interest) {
+    public void setInterest(String interest) {
         this.interest = interest;
     }
 
-    public void addCourse(Course course) {
-        this.interest.add(course);
+    @Override
+    public String toString() {
+        return "Course{" +
+                "courseName='" + courseName + '\'' +
+                ", subject='" + subject + '\'' +
+                ", introductionText='" + introductionText + '\'' +
+                ", level='" + level + '\'' +
+                ", interest='" + interest + '\'' +
+                '}';
     }
 }

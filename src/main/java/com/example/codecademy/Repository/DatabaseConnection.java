@@ -78,21 +78,20 @@ public class DatabaseConnection {
     }
 
     public ResultSet executeSQLSelectStatement(String query) {
-        ResultSet resultset = null;
 
         // First, check whether a some query was passed and the connection with
         // the database.
         if (query != null && connectionIsOpen()) {
             // Then, if succeeded, execute the query.
             try {
-                resultset = statement.executeQuery(query);
+                statement = connection.createStatement();
+                return statement.executeQuery(query);
             } catch (SQLException e) {
                 System.out.println(e);
-                resultset = null;
             }
         }
 
-        return resultset;
+        return null;
     }
 
     public boolean executeSQLDeleteStatement(String query) {
