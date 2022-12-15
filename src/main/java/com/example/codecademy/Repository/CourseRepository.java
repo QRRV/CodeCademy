@@ -19,4 +19,17 @@ public class CourseRepository {
         return result;
 
     }
+    public boolean createCourse(String courseID,Date dateTime,String level, String recommandation) {
+        if (!connection.connectionIsOpen())
+            connection.openConnection();
+
+        boolean result = connection
+                .executeSQLDeleteStatement(" INSERT INTO Course "+ "VALUES('"+ courseID +"','"+dateTime+"','"+level+"','"+recommandation+"')");
+
+        connection.closeConnection();
+
+        return result;
+
+    }
+
 }
