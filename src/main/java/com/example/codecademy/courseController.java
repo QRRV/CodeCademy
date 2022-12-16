@@ -40,15 +40,17 @@ public class courseController extends CourseRepository{
         myListView.getItems().addAll(courseString);
     }
 
-    // @FXML
-    // protected void deleteCourse() throws SQLException{
-    //     myListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
-    //         @Override
-    //         public void changed(ObservableValue<? extends String> arg0, String arg1, String arg2){
-    //             item = myListView.getSelectionModel().getSelectedItem();
-    //         }
-    //     }); 
-    // }
+    @FXML
+    protected void deleteCourse() throws SQLException{
+        myListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> arg0, String arg1, String arg2){
+                item = myListView.getSelectionModel().getSelectedItem();
+                String[] name = item.split(" ");
+                CourseRepository.deleteCourse(name[0]);
+            }
+        }); 
+    }
 
     // @Override
     // public void initialize(URL arg0, ResourceBundle arg1){

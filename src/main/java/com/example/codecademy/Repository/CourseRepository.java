@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class CourseRepository {
     static DatabaseConnection connection = new DatabaseConnection();
-    public boolean deleteCourse(String courseID) {
+    public static boolean deleteCourse(String courseID) {
         if (!connection.connectionIsOpen())
             connection.openConnection();
 
