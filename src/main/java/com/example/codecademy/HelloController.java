@@ -17,18 +17,10 @@ public class HelloController {
 
     @FXML
     protected void onHelloButtonClick(ActionEvent event) throws IOException{
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloController.class.getResource("createCourse-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloController.class.getResource("course-view.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(fxmlLoader.load(), 800, 600);
         stage.setScene(scene);
         stage.show();
     }
 } 
-
-// public void start(Stage stage) throws IOException {
-//     FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
-//     Scene scene = new Scene(fxmlLoader.load(), 320, 240);
-//     stage.setTitle("Hello!");
-//     stage.setScene(scene);
-//     stage.show();
-// }
