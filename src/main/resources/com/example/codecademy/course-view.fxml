@@ -16,11 +16,11 @@
         <padding>
             <Insets bottom="10.0" left="20.0" right="20.0" top="10.0"/>
         </padding>
-
-        <Button text="Create" onAction="#test"/>
+        <Button text="Load" onAction="#loadCourse"/>
+        <!-- <Button text="Create" onAction="#test"/>
         <Button text="Bewerk" onAction="#test"/>
-        <Button text="Verwijder" onAction="#test"/>
+        <Button text="Verwijder" onAction="#test"/> -->
     </HBox>
     
-    <ListView></ListView>
+    <ListView fx:id="myListView"/>
 </VBox>

@@ -6,7 +6,7 @@ import java.sql.*;
 import java.util.ArrayList;
 
 public class CourseRepository {
-    DatabaseConnection connection = new DatabaseConnection();
+    static DatabaseConnection connection = new DatabaseConnection();
     public boolean deleteCourse(String courseID) {
         if (!connection.connectionIsOpen())
             connection.openConnection();
@@ -20,7 +20,7 @@ public class CourseRepository {
         return result;
 
     }
-    public ArrayList<Course> getCourses() throws SQLException {
+    public static ArrayList<Course> getCourses() throws SQLException {
         if (!connection.connectionIsOpen())
             connection.openConnection();
 
