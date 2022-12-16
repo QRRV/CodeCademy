@@ -54,5 +54,18 @@ public class CourseRepository {
         return result;
 
     }
+    public boolean updateCourse(String courseID,Date dateTime,String level, String recommandation) {
+        if (!connection.connectionIsOpen())
+            connection.openConnection();
+
+        boolean result = connection
+                .executeSQLDeleteStatement("UPDATE Course set date = '"+dateTime+"',status = '"+level+"',recommendedCourse = '"+recommandation+"' WHERE courseName =  '" + courseID + "'");
+              //  .executeSQLDeleteStatement(" UPDATE Course "+ "SET datetime , );
+
+        connection.closeConnection();
+
+        return result;
+
+    }
 
 }
