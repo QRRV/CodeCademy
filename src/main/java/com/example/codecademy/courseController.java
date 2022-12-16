@@ -23,25 +23,32 @@ import java.sql.*;
 public class courseController extends CourseRepository{
     
     @FXML
-    private ListView<Course> myListView;
+    private ListView<String> myListView;
     
     String item;
+    ArrayList<String> courseString;
 
     @FXML
     protected void loadCourse() throws SQLException{
+        if (courseString != null) {
+            courseString.clear();
+        }
         ArrayList<Course> courses = CourseRepository.getCourses();
-        myListView.getItems().addAll(courses);
+        for (Course course : courses) {
+            courseString.add(course.toString());
+        }
+        myListView.getItems().addAll(courseString);
     }
 
-    @FXML
-    protected void deleteCourse() throws SQLException{
-        myListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> arg0, String arg1, String arg2){
-                item = myListView.getSelectionModel().getSelectedItem();
-            }
-        }); 
-    }
+    // @FXML
+    // protected void deleteCourse() throws SQLException{
+    //     myListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+    //         @Override
+    //         public void changed(ObservableValue<? extends String> arg0, String arg1, String arg2){
+    //             item = myListView.getSelectionModel().getSelectedItem();
+    //         }
+    //     }); 
+    // }
 
     // @Override
     // public void initialize(URL arg0, ResourceBundle arg1){

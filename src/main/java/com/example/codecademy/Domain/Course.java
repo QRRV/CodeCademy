@@ -51,12 +51,6 @@ public class Course {
 
     @Override
     public String toString() {
-        return "Course{" +
-                "courseName='" + courseName + '\'' +
-                ", subject='" + subject + '\'' +
-                ", introductionText='" + introductionText + '\'' +
-                ", level='" + level + '\'' +
-                ", interest='" + interest + '\'' +
-                '}';
+        return courseName +" " + subject + " " + introductionText +" " + level + " " + interest;
     }
 }
