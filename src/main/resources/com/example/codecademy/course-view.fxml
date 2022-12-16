@@ -18,8 +18,8 @@
         </padding>
         <Button text="Load" onAction="#loadCourse"/>
         <!-- <Button text="Create" onAction="#test"/>
-        <Button text="Bewerk" onAction="#test"/>
-        <Button text="Verwijder" onAction="#test"/> -->
+        <Button text="Bewerk" onAction="#test"/> -->
+        <Button text="Verwijder" onAction="#deleteCourse"/>
     </HBox>
     
     <ListView fx:id="myListView"/>
