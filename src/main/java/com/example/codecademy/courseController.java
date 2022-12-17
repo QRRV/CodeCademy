@@ -47,6 +47,11 @@ public class courseController extends CourseRepository implements Initializable{
 
      @Override
      public void initialize(URL arg0, ResourceBundle arg1){
+         try {
+             loadCourse();
+         } catch (SQLException e) {
+             throw new RuntimeException(e);
+         }
          myListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
              @Override
              public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {

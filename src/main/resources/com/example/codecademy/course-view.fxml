@@ -16,7 +16,7 @@
         <padding>
             <Insets bottom="10.0" left="20.0" right="20.0" top="10.0"/>
         </padding>
-        <Button text="Load" onAction="#loadCourse"/>
+        <Button text="Refresh" onAction="#loadCourse"/>
         <!-- <Button text="Create" onAction="#test"/>
         <Button text="Bewerk" onAction="#test"/> -->
         <Button text="Verwijder" onAction="#deleteCourse"/>
