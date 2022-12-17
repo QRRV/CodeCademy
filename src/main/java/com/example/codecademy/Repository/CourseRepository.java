@@ -13,7 +13,7 @@ public class CourseRepository {
 
         boolean result = connection
                 .executeSQLDeleteStatement(
-                        "DELETE FROM Course WHERE courseName =  '" + courseID + "'");
+                        "DELETE FROM course WHERE courseName =  '" + courseID + "'");
 
         connection.closeConnection();
 
@@ -26,7 +26,6 @@ public class CourseRepository {
 
         ResultSet result = connection
                 .executeSQLSelectStatement("SELECT * FROM course");
-
 
         ArrayList<Course> courses = new ArrayList<>();
         while (result.next()) {
@@ -41,6 +40,7 @@ public class CourseRepository {
         }
         connection.closeConnection();
         return courses;
+
     }
     public boolean createCourse(String courseID,Date dateTime,String level, String recommandation) {
         if (!connection.connectionIsOpen())

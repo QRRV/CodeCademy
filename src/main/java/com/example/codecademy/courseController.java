@@ -20,43 +20,41 @@ import javafx.stage.Stage;
 import java.sql.ResultSet;
 import java.sql.*;
 
-public class courseController extends CourseRepository{
+public class courseController extends CourseRepository implements Initializable{
     
     @FXML
     private ListView<String> myListView;
     
     String item;
-    ArrayList<String> courseString;
+    String[] name;
 
     @FXML
     protected void loadCourse() throws SQLException{
-        if (courseString != null) {
-            courseString.clear();
-        }
         ArrayList<Course> courses = CourseRepository.getCourses();
-        for (Course course : courses) {
-            courseString.add(course.toString());
-        }
-        myListView.getItems().addAll(courseString);
+        courses.forEach(course -> {
+            myListView.getItems().add(course.toString());
+        });
     }
 
     @FXML
     protected void deleteCourse() throws SQLException{
-        myListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> arg0, String arg1, String arg2){
-                item = myListView.getSelectionModel().getSelectedItem();
-                String[] name = item.split(" ");
-                CourseRepository.deleteCourse(name[0]);
-            }
-        }); 
+
+        CourseRepository.deleteCourse(name[0]);
+        myListView.getItems().clear();
+        loadCourse();
     }
 
-    // @Override
-    // public void initialize(URL arg0, ResourceBundle arg1){
-    //     ArrayList<Course> courses = CourseRepository.getCourses();
-    //     myListView.getItems().addAll(courses);
-    // }
+     @Override
+     public void initialize(URL arg0, ResourceBundle arg1){
+         myListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+             @Override
+             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                 item = String.valueOf(myListView.getSelectionModel().getSelectedItem());
+                 name = item.split("  ");
+                 System.out.println(name[0]);
+             }
+         });
+     }
 
 
 }
