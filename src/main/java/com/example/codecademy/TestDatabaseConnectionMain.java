@@ -16,15 +16,26 @@ public class TestDatabaseConnectionMain {
         CourseRepository course = new CourseRepository();
         String str="2015-03-31";
         Date date=Date.valueOf(str);
-        course.updateCourse("iets",date,"mid","wiskunde");
-//        try {
-//            ArrayList<Course> courses = course.getCourses();
-//            courses.forEach(course1 -> {
-//                System.out.println(course1.toString());
-//            });
-//        } catch (SQLException e){
-//            System.out.println(e);
-//        }
+        course.updateCourse("iets",Date.valueOf("2015-03-31"), "mid","c");
+        course.deleteCourse("scheikunde");
+        course.createCourse("scheikunde", Date.valueOf("2015-03-31"), "HIGH", "java");
+
+        try {
+            ArrayList<Course> courses = course.getCourses();
+            courses.forEach(course1 -> {
+                System.out.println(course1.toString());
+            });
+        } catch (SQLException e){
+            System.out.println(e);
+        }
+        try {
+            ArrayList<Course> courses = course.getCourses();
+            courses.forEach(course1 -> {
+                System.out.println(course1.toString());
+            });
+        } catch (SQLException e){
+            System.out.println(e);
+        }
 
     }
 }
