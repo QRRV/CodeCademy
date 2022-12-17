@@ -31,6 +31,7 @@ public class courseController extends CourseRepository implements Initializable{
     @FXML
     protected void loadCourse() throws SQLException{
         ArrayList<Course> courses = CourseRepository.getCourses();
+        myListView.getItems().clear();
         courses.forEach(course -> {
             myListView.getItems().add(course.toString());
         });
