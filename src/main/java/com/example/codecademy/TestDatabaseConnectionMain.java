@@ -16,7 +16,7 @@ public class TestDatabaseConnectionMain {
         CourseRepository course = new CourseRepository();
         String str="2015-03-31";
         Date date=Date.valueOf(str);
-        course.updateCourse("iets",date,"mid","wiskunde");
+        course.createCourse("iets",date,"mid","iets");
 //        try {
 //            ArrayList<Course> courses = course.getCourses();
 //            courses.forEach(course1 -> {

@@ -30,7 +30,9 @@ public class DatabaseConnection {
                 // Try to create a connection with the library database
 
                 connection = DriverManager.getConnection(
-                        "jdbc:sqlserver://localhost;databaseName=codecademy;integratedSecurity=true;encrypt=true;trustServerCertificate=true;");
+                        "jdbc:sqlserver://localhost;databaseName=codecademy;integratedSecurity=true;encrypt=true;trustServerCertificate=true;"
+                        //"jdbc:sqlserver://localhost\\SQLEXPRESS;databaseName=codecademy;integratedSecurity=true;"
+                        );
 
                 if (connection != null) {
                     statement = connection.createStatement();
