@@ -6,7 +6,7 @@ import java.sql.*;
 import java.util.ArrayList;
 
 public class CourseRepository {
-    public boolean deleteCourse(String courseID){
+    public static boolean deleteCourse(String courseID){
         String updateStmt =
                 "BEGIN\n" + "DELETE FROM Course WHERE courseName =  '" + courseID + "'" +
                         "END;";
@@ -26,7 +26,7 @@ public class CourseRepository {
         }
 
     }
-    public ArrayList<Course> getCourses() throws SQLException {
+    public static ArrayList<Course> getCourses() throws SQLException {
         String selectStmt = "SELECT * FROM course";
         //Execute SELECT statement
         try {
