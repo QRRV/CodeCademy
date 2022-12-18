@@ -83,13 +83,8 @@ public class courseController extends CourseRepository implements Initializable 
     }
 
     @FXML
-    protected void getCourse() throws  SQLException{
-        selItem = CourseRepository.getCourses();
-    }
-
-    @FXML
     protected void deleteCourse() throws SQLException{
-
+//        System.out.println(name[0]);
         CourseRepository.deleteCourse(name[0]);
         myListView.getItems().clear();
         getList();
@@ -116,6 +111,7 @@ public class courseController extends CourseRepository implements Initializable 
                  name = item.split("  ");
              }
          });
+
          try {
              selItem = CourseRepository.getCourses();
          } catch (SQLException e) {
