@@ -25,7 +25,7 @@
             <TextField fx:id="introt" layoutX="194.0" layoutY="174.0" prefHeight="38.0" prefWidth="149.0" />
             <TextField fx:id="lvl" layoutX="194.0" layoutY="219.0" prefHeight="38.0" prefWidth="149.0" />
             <TextField fx:id="intrst" layoutX="194.0" layoutY="263.0" prefHeight="38.0" prefWidth="149.0" />
-             <Button layoutX="358.0" layoutY="327.0" mnemonicParsing="false" onAction="#createCourse" prefHeight="38.0" prefWidth="101.0" text="create" /> -->
+             <Button layoutX="358.0" layoutY="327.0" mnemonicParsing="false" onAction="#createCourse" prefHeight="38.0" prefWidth="101.0" text="create" />
          </children>
       </AnchorPane>
    </children>
