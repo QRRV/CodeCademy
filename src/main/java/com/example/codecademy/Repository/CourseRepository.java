@@ -75,9 +75,9 @@ public class CourseRepository {
 //
 
     }
-    public boolean updateCourse(String courseID,Date dateTime,String level, String recommandation) {
+    public boolean updateCourse(String courseID,Date dateTime,String level, String recommendation) {
         String updateStmt =
-                "BEGIN\n" + "UPDATE Course set date = '"+dateTime+"',status = '"+level+"',recommendedCourse = '"+recommandation+"' WHERE courseName =  '" + courseID + "'" +
+                "BEGIN\n" + "UPDATE Course set date = '"+dateTime+"',status = '"+level+"',recommendedCourse = '"+recommendation+"' WHERE courseName =  '" + courseID + "'" +
                         "   COMMIT;\n" +
                         "END;";
         //Execute UPDATE operation
