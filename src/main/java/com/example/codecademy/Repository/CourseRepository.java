@@ -6,11 +6,7 @@ import java.sql.*;
 import java.util.ArrayList;
 
 public class CourseRepository {
-<<<<<<< HEAD
     public static boolean deleteCourse(String courseID){
-=======
-    public boolean deleteCourse(String courseID){
->>>>>>> databaseConnection
         String updateStmt =
                 "BEGIN\n" + "DELETE FROM Course WHERE courseName =  '" + courseID + "'" +
                         "END;";
@@ -60,14 +56,6 @@ public class CourseRepository {
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
-<<<<<<< HEAD
-//
-
-    }
-    public boolean updateCourse(String courseID,Date dateTime,String level, String recommendation) {
-        String updateStmt =
-                "BEGIN\n" + "UPDATE Course set date = '"+dateTime+"',status = '"+level+"',recommendedCourse = '"+recommendation+"' WHERE courseName =  '" + courseID + "'" +
-=======
 
     }
     public boolean createCourse(String courseID, String subject, String status, String introductionText, String recommendation) {
@@ -94,7 +82,6 @@ public class CourseRepository {
     public boolean updateCourse(String courseID, String subject, String status, String introductionText, String recommendation) {
         String updateStmt =
                 "BEGIN\n" + "UPDATE Course set subject = '"+subject+"',status = '"+status+"',introductionText = '"+introductionText+"',recommendedCourse = '"+recommendation+"' WHERE courseName =  '" + courseID + "'" +
->>>>>>> databaseConnection
                         "   COMMIT;\n" +
                         "END;";
         //Execute UPDATE operation
