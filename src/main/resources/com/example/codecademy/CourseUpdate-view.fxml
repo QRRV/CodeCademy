@@ -25,7 +25,7 @@
             <TextField fx:id="sub" layoutX="194.0" layoutY="130.0" prefHeight="38.0" prefWidth="149.0" />
             <TextField fx:id="introTxt" layoutX="194.0" layoutY="174.0" prefHeight="38.0" prefWidth="149.0" />
             <TextField fx:id="lvl" layoutX="194.0" layoutY="219.0" prefHeight="38.0" prefWidth="149.0" />
-            <TextField fx:id="intrst" layoutX="194.0" layoutY="263.0" prefHeight="38.0" prefWidth="149.0" />
+            <ComboBox fx:id="recCourse" layoutX="194.0" layoutY="263.0" prefHeight="38.0" prefWidth="149.0" />
              <Button layoutX="270.0" layoutY="327.0" mnemonicParsing="false" onAction="#updateCourse" prefHeight="38.0" prefWidth="101.0" text="Bevestig" />
             <Button layoutX="150.0" layoutY="327.0" mnemonicParsing="false" onAction="#BackToCourse" prefHeight="38.0" prefWidth="101.0" text="Terug" />
          </children>

@@ -49,7 +49,7 @@ public class courseController extends CourseRepository implements Initializable 
     @FXML
     private TextField lvl;
     @FXML
-    private TextField intrst;
+    private ComboBox recCourse = new ComboBox<>();
 
     String item;
     String[] name;
@@ -111,17 +111,26 @@ public class courseController extends CourseRepository implements Initializable 
 
     @FXML
     protected void createCourse(ActionEvent event) throws IOException{
-        try {
-            CourseRepository.createCourse(cname.getText(), sub.getText(), lvl.getText(), introTxt.getText(), intrst.getText());
-        }catch (Exception ex){
-            System.out.println("Problem occurred at createCourse operation : " + ex);
-        }
+        System.out.println(cname.getText());
+        if(cname.getText().isBlank()) {
+            System.out.println("Course Naam is verplicht");
+        }else {
+            try {
+                if (recCourse.getSelectionModel().getSelectedItem() == null) {
+                    CourseRepository.createCourse(cname.getText(), sub.getText(), lvl.getText(), introTxt.getText(), "");
+                } else {
+                    CourseRepository.createCourse(cname.getText(), sub.getText(), lvl.getText(), introTxt.getText(), (String) recCourse.getSelectionModel().getSelectedItem());
+                }
+            } catch (Exception ex) {
+                System.out.println("Problem occurred at createCourse operation : " + ex);
+            }
 
-        FXMLLoader fxmlLoader = new FXMLLoader(courseController.class.getResource("course-view.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(fxmlLoader.load(), 800, 600);
-        stage.setScene(scene);
-        stage.show();
+            FXMLLoader fxmlLoader = new FXMLLoader(courseController.class.getResource("course-view.fxml"));
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(fxmlLoader.load(), 800, 600);
+            stage.setScene(scene);
+            stage.show();
+        }
     }
 
     @FXML
@@ -133,14 +142,20 @@ public class courseController extends CourseRepository implements Initializable 
 
     @FXML
     protected void updateCourse(ActionEvent event) throws  SQLException, IOException{
-        System.out.println(cName.getSelectionModel().getSelectedItem());
-        CourseRepository.updateCourse((String) cName.getSelectionModel().getSelectedItem(), sub.getText(), lvl.getText(), introTxt.getText(), intrst.getText());
-
-        FXMLLoader fxmlLoader = new FXMLLoader(courseController.class.getResource("course-view.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(fxmlLoader.load(), 800, 600);
-        stage.setScene(scene);
-        stage.show();
+        if(cName.getSelectionModel().getSelectedItem()!=null) {
+            if (recCourse.getSelectionModel().getSelectedItem() != null) {
+                CourseRepository.updateCourse((String) cName.getSelectionModel().getSelectedItem(), sub.getText(), lvl.getText(), introTxt.getText(), (String) recCourse.getSelectionModel().getSelectedItem());
+            } else {
+                CourseRepository.updateCourse((String) cName.getSelectionModel().getSelectedItem(), sub.getText(), lvl.getText(), introTxt.getText(), "");
+            }
+            FXMLLoader fxmlLoader = new FXMLLoader(courseController.class.getResource("course-view.fxml"));
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(fxmlLoader.load(), 800, 600);
+            stage.setScene(scene);
+            stage.show();
+        }else {
+            System.out.println("Course name is verplicht");
+        }
     }
 
      @Override
@@ -171,6 +186,7 @@ public class courseController extends CourseRepository implements Initializable 
              });
              oListName = FXCollections.observableArrayList(names);
              cName.setItems(oListName);
+             recCourse.setItems(oListName);
          }
      }
 }
