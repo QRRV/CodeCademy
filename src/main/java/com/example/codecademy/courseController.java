@@ -29,8 +29,6 @@ public class courseController extends CourseRepository implements Initializable 
     @FXML
     private TextField cname;
     @FXML
-    private ListView<String> myListView = new ListView<String>();
-    @FXML
     private TableView<Course> tableView = new TableView<Course>();
     @FXML
     private TableColumn courseName = new TableColumn<>();
@@ -97,6 +95,7 @@ public class courseController extends CourseRepository implements Initializable 
     @FXML
     protected void getList() throws SQLException{
         ArrayList<Course> courses = CourseRepository.getCourses();
+        tableView.getItems().clear();
         oListCourses = tableView.getItems();
         courses.forEach(course -> {
             oListCourses.add(course);
@@ -128,7 +127,7 @@ public class courseController extends CourseRepository implements Initializable 
     @FXML
     protected void deleteCourse() throws SQLException{
         CourseRepository.deleteCourse(name[0]);
-        myListView.getItems().clear();
+        tableView.getItems().clear();
         getList();
     }
 
@@ -152,11 +151,12 @@ public class courseController extends CourseRepository implements Initializable 
          } catch (SQLException e) {
              throw new RuntimeException(e);
          }
-         myListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+         tableView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Course>() {
              @Override
-             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                 item = myListView.getSelectionModel().getSelectedItem();
+             public void changed(ObservableValue<? extends Course> observable, Course oldValue, Course newValue) {
+                 item = String.valueOf(tableView.getSelectionModel().getSelectedItem());
                  name = item.split(" ");
+                 System.out.println(name[0]);
              }
          });
 
