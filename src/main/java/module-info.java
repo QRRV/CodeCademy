@@ -5,7 +5,7 @@ module com.example.codecademy {
     requires java.sql;
     requires java.sql.rowset;
 
-
+    opens com.example.codecademy.Domain to javafx.base;
     opens com.example.codecademy to javafx.fxml;
     exports com.example.codecademy;
 }

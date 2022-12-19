@@ -18,10 +18,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import java.sql.ResultSet;
 import java.sql.*;
@@ -32,6 +30,18 @@ public class courseController extends CourseRepository implements Initializable 
     private TextField cname;
     @FXML
     private ListView<String> myListView = new ListView<String>();
+    @FXML
+    private TableView<Course> tableView = new TableView<Course>();
+    @FXML
+    private TableColumn courseName = new TableColumn<>();
+    @FXML
+    private TableColumn subject = new TableColumn<>();
+    @FXML
+    private TableColumn introductionText = new TableColumn<>();
+    @FXML
+    private TableColumn status = new TableColumn<>();
+    @FXML
+    private TableColumn recommendedCourse = new TableColumn<>();
     @FXML
     private ComboBox cName = new ComboBox<>();
     @FXML
@@ -48,6 +58,8 @@ public class courseController extends CourseRepository implements Initializable 
 
     ArrayList<String> items = new ArrayList<String>();
     ObservableList<String> oListName;
+
+    ObservableList<Course> oListCourses;
     ArrayList<Course> selItem;
     ArrayList<String> names = new ArrayList<String>();
 
@@ -85,10 +97,17 @@ public class courseController extends CourseRepository implements Initializable 
     @FXML
     protected void getList() throws SQLException{
         ArrayList<Course> courses = CourseRepository.getCourses();
-        myListView.getItems().clear();
+        oListCourses = tableView.getItems();
         courses.forEach(course -> {
-            myListView.getItems().add(course.toString());
+            oListCourses.add(course);
         });
+        courseName.setCellValueFactory(new PropertyValueFactory<Course,String>("courseName"));
+        subject.setCellValueFactory(new PropertyValueFactory<Course,String>("subject"));
+        status.setCellValueFactory(new PropertyValueFactory<Course,String>("level"));
+        introductionText.setCellValueFactory(new PropertyValueFactory<Course,String>("introductionText"));
+        recommendedCourse.setCellValueFactory(new PropertyValueFactory<Course,String>("interest"));
+
+        tableView.setItems(oListCourses);
     }
 
     @FXML
@@ -137,7 +156,7 @@ public class courseController extends CourseRepository implements Initializable 
              @Override
              public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                  item = myListView.getSelectionModel().getSelectedItem();
-                 name = item.split("     ");
+                 name = item.split(" ");
              }
          });
 
@@ -147,7 +166,7 @@ public class courseController extends CourseRepository implements Initializable 
                  items.add(course.toString());
              });
              items.forEach(item ->{
-                 name = item.split("     ");
+                 name = item.split(" ");
                  names.add(name[0]);
              });
              oListName = FXCollections.observableArrayList(names);
