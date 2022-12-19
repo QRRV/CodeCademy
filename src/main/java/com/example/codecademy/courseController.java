@@ -65,7 +65,6 @@ public class courseController extends CourseRepository implements Initializable 
 
     @FXML
     protected void BackToCourse(ActionEvent event) throws IOException{
-
         FXMLLoader fxmlLoader = new FXMLLoader(courseController.class.getResource("course-view.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(fxmlLoader.load(), 800, 600);
@@ -91,9 +90,15 @@ public class courseController extends CourseRepository implements Initializable 
     }
 
     @FXML
-    protected void updateCourse() throws  SQLException{
+    protected void updateCourse(ActionEvent event) throws  SQLException, IOException{
         System.out.println(cName.getSelectionModel().getSelectedItem());
-        // updateCourse(cName.getText(), Date.valueOf("18-12-2022"), lvl.getText(), intrst.getText());
+        CourseRepository.updateCourse((String) cName.getSelectionModel().getSelectedItem(), sub.getText(), lvl.getText(), introTxt.getText(), intrst.getText());
+
+        FXMLLoader fxmlLoader = new FXMLLoader(courseController.class.getResource("course-view.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(fxmlLoader.load(), 800, 600);
+        stage.setScene(scene);
+        stage.show();
     }
 
      @Override
@@ -108,21 +113,17 @@ public class courseController extends CourseRepository implements Initializable 
              @Override
              public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                  item = myListView.getSelectionModel().getSelectedItem();
-                 name = item.split("  ");
+                 name = item.split("     ");
              }
          });
 
-         try {
-             selItem = CourseRepository.getCourses();
-         } catch (SQLException e) {
-             throw new RuntimeException(e);
-         }
+         selItem = CourseRepository.getCourses();
          if(cName != null){
              selItem.forEach(course -> {
                  items.add(course.toString());
              });
              items.forEach(item ->{
-                 name = item.split("  ");
+                 name = item.split("     ");
                  names.add(name[0]);
              });
              oListName = FXCollections.observableArrayList(names);

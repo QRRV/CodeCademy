@@ -26,7 +26,7 @@ public class CourseRepository {
         }
 
     }
-    public ArrayList<Course> getCourses() {
+    public static ArrayList<Course> getCourses() {
         String selectStmt = "SELECT * FROM course";
         //Execute SELECT statement
         try {
@@ -79,7 +79,7 @@ public class CourseRepository {
 //
 
     }
-    public boolean updateCourse(String courseID, String subject, String status, String introductionText, String recommendation) {
+    public static Boolean updateCourse(String courseID, String subject, String status, String introductionText, String recommendation) {
         String updateStmt =
                 "BEGIN\n" + "UPDATE Course set subject = '"+subject+"',status = '"+status+"',introductionText = '"+introductionText+"',recommendedCourse = '"+recommendation+"' WHERE courseName =  '" + courseID + "'" +
                         "   COMMIT;\n" +
