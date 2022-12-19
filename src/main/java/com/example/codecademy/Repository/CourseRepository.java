@@ -26,7 +26,7 @@ public class CourseRepository {
         }
 
     }
-    public static ArrayList<Course> getCourses() throws SQLException {
+    public static ArrayList<Course> getCourses() {
         String selectStmt = "SELECT * FROM course";
         //Execute SELECT statement
         try {
@@ -37,8 +37,8 @@ public class CourseRepository {
             while (rsEmp.next()) {
                 Course returningCourse = new Course();
                 returningCourse.setCourseName(rsEmp.getString("courseName"));
-                returningCourse.setSubject("TODO");
-                returningCourse.setIntroductionText("TODO");
+                returningCourse.setSubject(rsEmp.getString("subject"));
+                returningCourse.setIntroductionText(rsEmp.getString("introductionText"));
                 returningCourse.setLevel(rsEmp.getString("status"));
                 returningCourse.setInterest(rsEmp.getString("recommendedCourse"));
                 courses.add(returningCourse);
@@ -48,15 +48,19 @@ public class CourseRepository {
         } catch (SQLException e) {
             System.out.println("While selecting all courses, an error occurred: " + e);
             //Return exception
-            throw e;
+            try {
+                throw e;
+            } catch (SQLException ex) {
+                throw new RuntimeException(ex);
+            }
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
 
     }
-    public boolean createCourse(String courseID,Date dateTime,String level, String recommandation) {
+    public boolean createCourse(String courseID, String subject, String status, String introductionText, String recommendation) {
         String updateStmt =
-                "BEGIN\n" + "INSERT INTO Course VALUES('"+ courseID + "','"+dateTime+"','"+level+"','"+recommandation+"')\n"+
+                "BEGIN\n" + "INSERT INTO Course VALUES('"+ courseID + "','"+subject+"','"+ status +"','"+ introductionText + "','" +recommendation+"')\n"+
                         "END;";
         //Execute DELETE operation
         try {
@@ -75,9 +79,9 @@ public class CourseRepository {
 //
 
     }
-    public boolean updateCourse(String courseID,Date dateTime,String level, String recommandation) {
+    public boolean updateCourse(String courseID, String subject, String status, String introductionText, String recommendation) {
         String updateStmt =
-                "BEGIN\n" + "UPDATE Course set date = '"+dateTime+"',status = '"+level+"',recommendedCourse = '"+recommandation+"' WHERE courseName =  '" + courseID + "'" +
+                "BEGIN\n" + "UPDATE Course set subject = '"+subject+"',status = '"+status+"',introductionText = '"+introductionText+"',recommendedCourse = '"+recommendation+"' WHERE courseName =  '" + courseID + "'" +
                         "   COMMIT;\n" +
                         "END;";
         //Execute UPDATE operation
