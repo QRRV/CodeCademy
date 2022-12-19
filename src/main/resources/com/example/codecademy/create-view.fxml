@@ -19,12 +19,12 @@
             <Label layoutX="46.0" layoutY="130.0" prefHeight="38.0" prefWidth="101.0" text=" Subject" />
             <Label layoutX="46.0" layoutY="173.0" prefHeight="38.0" prefWidth="101.0" text=" Intro Text" />
             <Label layoutX="46.0" layoutY="213.0" prefHeight="38.0" prefWidth="101.0" text=" Level" />
-            <Label layoutX="46.0" layoutY="262.0" prefHeight="38.0" prefWidth="101.0" text=" Interest" />
+            <Label layoutX="46.0" layoutY="263.0" prefHeight="38.0" prefWidth="101.0" text=" Interest" />
             <TextField fx:id="cname" layoutX="194.0" layoutY="82.0" prefHeight="38.0" prefWidth="149.0" />
             <TextField fx:id="sub" layoutX="194.0" layoutY="130.0" prefHeight="38.0" prefWidth="149.0" />
             <TextField fx:id="introt" layoutX="194.0" layoutY="174.0" prefHeight="38.0" prefWidth="149.0" />
             <TextField fx:id="lvl" layoutX="194.0" layoutY="219.0" prefHeight="38.0" prefWidth="149.0" />
-            <TextField fx:id="intrst" layoutX="194.0" layoutY="263.0" prefHeight="38.0" prefWidth="149.0" />
+            <TextField fx:id="intr" layoutX="194.0" layoutY="263.0" prefHeight="38.0" prefWidth="149.0" />
              <Button layoutX="358.0" layoutY="327.0" mnemonicParsing="false" onAction="#createCourse" prefHeight="38.0" prefWidth="101.0" text="create" />
          </children>
       </AnchorPane>

@@ -1,6 +1,7 @@
 package com.example.codecademy;
 
 import java.io.IOException;
+import java.sql.Date;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,7 +13,7 @@ import javafx.stage.Stage;
 import com.example.codecademy.Domain.Course;
 import com.example.codecademy.Repository.CourseRepository;
 
-public class CreateCourseController {
+public class CreateCourseController extends CourseRepository{
     @FXML
     private TextField cname;
     @FXML
@@ -21,6 +22,8 @@ public class CreateCourseController {
     private TextField introt;
     @FXML
     private TextField lvl;
+    @FXML
+    private TextField intr;
 
     @FXML
     private Stage stage;
@@ -37,7 +40,8 @@ public class CreateCourseController {
     @FXML
     protected void createCourse(){
         try {
-             
+            CourseRepository cr = new CourseRepository();
+            cr.createCourse(cname.getText(), Date.valueOf(sub.getText()), lvl.getText(), intr.getText());
         }catch (Exception ex){
             System.out.println("Problem occurred at createCourse operation : " + ex);
         }

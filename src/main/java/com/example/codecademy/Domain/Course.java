@@ -41,18 +41,6 @@ public class Course {
         this.level = level;
     }
 
-<<<<<<< HEAD
-    public ArrayList<Course> getInterest() {
-        return interest;
-    }
-
-    public void setInterest(ArrayList<Course> interest) {
-        this.interest = interest;
-    }
-
-    public void addCourse(Course course) {
-        this.interest.add(course);
-=======
     public String getInterest() {
         return interest;
     }
@@ -70,6 +58,5 @@ public class Course {
                 ", level='" + level + '\'' +
                 ", interest='" + interest + '\'' +
                 '}';
->>>>>>> origin/databaseConnection
     }
 }
