@@ -58,7 +58,7 @@ public class CourseRepository {
         }
 
     }
-    public boolean createCourse(String courseID, String subject, String status, String introductionText, String recommendation) {
+    public static boolean createCourse(String courseID, String subject, String status, String introductionText, String recommendation) {
         String updateStmt =
                 "BEGIN\n" + "INSERT INTO Course VALUES('"+ courseID + "','"+subject+"','"+ status +"','"+ introductionText + "','" +recommendation+"')\n"+
                         "END;";

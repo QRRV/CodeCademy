@@ -27,7 +27,9 @@ import java.sql.ResultSet;
 import java.sql.*;
 
 public class courseController extends CourseRepository implements Initializable {
-    
+
+    @FXML
+    private TextField cname;
     @FXML
     private ListView<String> myListView = new ListView<String>();
     @FXML
@@ -42,7 +44,6 @@ public class courseController extends CourseRepository implements Initializable 
     private TextField intrst;
 
     String item;
-    String selName;
     String[] name;
 
     ArrayList<String> items = new ArrayList<String>();
@@ -56,11 +57,20 @@ public class courseController extends CourseRepository implements Initializable 
 
     @FXML
     protected void toUpdate(ActionEvent event) throws IOException {
-            FXMLLoader fxmlLoader = new FXMLLoader(UpdateCourseController.class.getResource("CourseUpdate-view.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(courseController.class.getResource("CourseUpdate-view.fxml"));
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             Scene scene = new Scene(fxmlLoader.load(), 511, 600);
             stage.setScene(scene);
             stage.show();
+    }
+
+    @FXML
+    protected void toCreate(ActionEvent event) throws IOException{
+        FXMLLoader fxmlLoader = new FXMLLoader(courseController.class.getResource("CourseCreate-view.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(fxmlLoader.load(), 511, 600);
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
@@ -82,8 +92,22 @@ public class courseController extends CourseRepository implements Initializable 
     }
 
     @FXML
+    protected void createCourse(ActionEvent event) throws IOException{
+        try {
+            CourseRepository.createCourse(cname.getText(), sub.getText(), lvl.getText(), introTxt.getText(), intrst.getText());
+        }catch (Exception ex){
+            System.out.println("Problem occurred at createCourse operation : " + ex);
+        }
+
+        FXMLLoader fxmlLoader = new FXMLLoader(courseController.class.getResource("course-view.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(fxmlLoader.load(), 800, 600);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
     protected void deleteCourse() throws SQLException{
-//        System.out.println(name[0]);
         CourseRepository.deleteCourse(name[0]);
         myListView.getItems().clear();
         getList();
