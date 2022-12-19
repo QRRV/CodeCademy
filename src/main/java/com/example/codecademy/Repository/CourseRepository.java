@@ -6,7 +6,7 @@ import java.sql.*;
 import java.util.ArrayList;
 
 public class CourseRepository {
-    public boolean deleteCourse(String courseID){
+    public static boolean deleteCourse(String courseID){
         String updateStmt =
                 "BEGIN\n" + "DELETE FROM Course WHERE courseName =  '" + courseID + "'" +
                         "END;";
@@ -26,7 +26,7 @@ public class CourseRepository {
         }
 
     }
-    public ArrayList<Course> getCourses() {
+    public static ArrayList<Course> getCourses() {
         String selectStmt = "SELECT * FROM course";
         //Execute SELECT statement
         try {
@@ -58,7 +58,7 @@ public class CourseRepository {
         }
 
     }
-    public boolean createCourse(String courseID, String subject, String status, String introductionText, String recommendation) {
+    public static boolean createCourse(String courseID, String subject, String status, String introductionText, String recommendation) {
         String updateStmt =
                 "BEGIN\n" + "INSERT INTO Course VALUES('"+ courseID + "','"+subject+"','"+ status +"','"+ introductionText + "','" +recommendation+"')\n"+
                         "END;";
@@ -79,7 +79,7 @@ public class CourseRepository {
 //
 
     }
-    public boolean updateCourse(String courseID, String subject, String status, String introductionText, String recommendation) {
+    public static boolean updateCourse(String courseID, String subject, String status, String introductionText, String recommendation) {
         String updateStmt =
                 "BEGIN\n" + "UPDATE Course set subject = '"+subject+"',status = '"+status+"',introductionText = '"+introductionText+"',recommendedCourse = '"+recommendation+"' WHERE courseName =  '" + courseID + "'" +
                         "   COMMIT;\n" +
