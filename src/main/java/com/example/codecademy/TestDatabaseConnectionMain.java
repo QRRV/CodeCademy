@@ -16,26 +16,14 @@ public class TestDatabaseConnectionMain {
         CourseRepository course = new CourseRepository();
         String str="2015-03-31";
         Date date=Date.valueOf(str);
-        course.updateCourse("iets",Date.valueOf("2015-03-31"), "mid","c");
-        course.deleteCourse("scheikunde");
-        course.createCourse("scheikunde", Date.valueOf("2015-03-31"), "HIGH", "java");
+        course.updateCourse("spaans","kut taal", "mid", "spaans is een kut taal",null);
+        course.deleteCourse("spaans");
+        course.createCourse("spaans", "kut vak", "high", "scheikunde is een kut vak", "c");
 
-        try {
-            ArrayList<Course> courses = course.getCourses();
-            courses.forEach(course1 -> {
-                System.out.println(course1.toString());
-            });
-        } catch (SQLException e){
-            System.out.println(e);
-        }
-        try {
-            ArrayList<Course> courses = course.getCourses();
-            courses.forEach(course1 -> {
-                System.out.println(course1.toString());
-            });
-        } catch (SQLException e){
-            System.out.println(e);
-        }
+        ArrayList<Course> courses = course.getCourses();
+        courses.forEach(course1 -> {
+            System.out.println(course1.toString());
+        });
 
     }
 }
