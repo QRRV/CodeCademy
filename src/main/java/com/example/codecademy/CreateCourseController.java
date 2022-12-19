@@ -41,7 +41,7 @@ public class CreateCourseController extends CourseRepository{
     protected void createCourse(){
         try {
             CourseRepository cr = new CourseRepository();
-            cr.createCourse(cname.getText(), Date.valueOf(sub.getText()), lvl.getText(), intr.getText());
+            cr.createCourse(cname.getText(), sub.getText(), lvl.getText(), introt.getText(), intr.getText());
         }catch (Exception ex){
             System.out.println("Problem occurred at createCourse operation : " + ex);
         }
