@@ -23,4 +23,13 @@ public class HelloController {
         stage.setScene(scene);
         stage.show();
     }
+
+    @FXML
+    protected void certificateBtn(ActionEvent event) throws IOException{
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloController.class.getResource("Certificate-view.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(fxmlLoader.load(), 800, 600);
+        stage.setScene(scene);
+        stage.show();
+    }
 } 

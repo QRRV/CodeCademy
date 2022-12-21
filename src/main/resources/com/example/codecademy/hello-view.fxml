@@ -13,5 +13,6 @@
 
     <Label fx:id="welcomeText"/>
     <Button text="Course" onAction="#onHelloButtonClick"/>
+    <Button text="Certificate" onAction="#certificateBtn"/>
 </VBox>
   
