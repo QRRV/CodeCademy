@@ -26,17 +26,16 @@
         </padding>
         <!--        <Button text="Refresh" onAction="#getCourse"/>-->
         <Button text="Create" onAction="#toCreate"/>
-        <Button text="Bewerk" onAction="#toUpdate"/>
-        <Button text="Verwijder" onAction="#deleteCourse"/>
+        <Button text="Update" onAction="#toUpdate"/>
+        <Button text="Delete" onAction="#deleteCertificate"/>
     </HBox>
 
     <TableView fx:id="tableView" prefWidth="760" maxWidth="760">
         <columns>
-            <TableColumn fx:id="courseName" prefWidth="150" text="Naam"/>
-            <TableColumn fx:id="subject" prefWidth="150" text="Subject"/>
-            <TableColumn fx:id="status" prefWidth="125" text="Level"/>
-            <TableColumn fx:id="introductionText" prefWidth="185" text="Intro text"/>
-            <TableColumn fx:id="recommendedCourse" prefWidth="150" text="Recommended"/>
+            <TableColumn fx:id="certificateId" prefWidth="150" text="CertificateId"/>
+            <TableColumn fx:id="grade" prefWidth="150" text="Grade"/>
+            <TableColumn fx:id="nameEmployer" prefWidth="125" text="Name Employer"/>
+
         </columns>
     </TableView>
 </VBox>

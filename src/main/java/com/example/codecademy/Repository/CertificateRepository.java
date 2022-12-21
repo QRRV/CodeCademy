@@ -6,7 +6,7 @@ import java.sql.*;
 import java.util.ArrayList;
 
 public class CertificateRepository {
-    public static boolean deleteCertificate(String certificateID){
+    public static boolean deleteCertificate(int certificateID){
         String updateStmt =
                 "BEGIN\n" + "DELETE FROM Certificate WHERE certificateID =  '" + certificateID + "'" +
                         "END;";
@@ -29,7 +29,7 @@ public class CertificateRepository {
     public static ArrayList<Certificate> getCertificates(){
         String selectStmt = "SELECT * FROM certificate";
         try {
-            ResultSet rsEmp = DbUtil.dbExecuteQuery(selectStmt);]
+            ResultSet rsEmp = DbUtil.dbExecuteQuery(selectStmt);
             ArrayList<Certificate> certificates = new ArrayList<>();
             while (rsEmp.next()) {
                 Certificate returningCertificate = new Certificate();
@@ -54,7 +54,7 @@ public class CertificateRepository {
         }
     }
 
-    public static boolean createCourse(int certificateID, int grade, String nameEmployer){
+    public static boolean createCertificate(int certificateID, int grade, String nameEmployer){
         String updateStmt =
                 "BEGIN\n" + "INSERT INTO Certificate VALUES('"+ certificateID + "','"+grade+"','"+ nameEmployer +"')\n"+
                         "END;";

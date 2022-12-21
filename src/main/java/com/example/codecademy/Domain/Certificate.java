@@ -29,4 +29,8 @@ public class Certificate {
         this.nameEmployer = nameEmployer;
     }
 
+    @Override
+    public String toString() {
+        return this.certificateId +" "+ this.grade + " "+ this.nameEmployer;
+    }
 }
