@@ -11,11 +11,11 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TableColumn?>
 <VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.codecademy.courseController">
+      fx:controller="com.example.codecademy.studentController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
     </padding>
-    <Label text="Course" alignment="CENTER" >
+    <Label text="Student" alignment="CENTER" >
         <font>
             <Font size="25.0" />
         </font>
@@ -25,18 +25,17 @@
             <Insets bottom="10.0" left="20.0" right="20.0" top="10.0"/>
         </padding>
         <Button text="Terug" onAction="#toMain"/>
-        <Button text="Create" onAction="#toCreate"/>
-        <Button text="Bewerk" onAction="#toUpdate"/>
-        <Button text="Verwijder" onAction="#deleteCourse"/>
+        <Button text="Create" onAction="#toCreateStudent"/>
+<!--        <Button text="Bewerk" onAction="#toUpdate"/>-->
+<!--        <Button text="Verwijder" onAction="#deleteCourse"/>-->
     </HBox>
-    
-    <TableView fx:id="tableView" prefWidth="760" maxWidth="760">
+
+    <TableView fx:id="tableView" prefWidth="600" maxWidth="600">
         <columns>
-            <TableColumn fx:id="courseName" prefWidth="150" text="Naam"/>
-            <TableColumn fx:id="subject" prefWidth="150" text="Subject"/>
-            <TableColumn fx:id="status" prefWidth="125" text="Level"/>
-            <TableColumn fx:id="introductionText" prefWidth="185" text="Intro text"/>
-            <TableColumn fx:id="recommendedCourse" prefWidth="150" text="Recommended"/>
+            <TableColumn fx:id="eMail" prefWidth="250" text="Emailadres"/>
+            <TableColumn fx:id="Name" prefWidth="150" text="Naam"/>
+            <TableColumn fx:id="Birthday" prefWidth="100" text="Geboortedatum"/>
+            <TableColumn fx:id="Gender" prefWidth="100" text="Geslacht"/>
         </columns>
     </TableView>
 </VBox>

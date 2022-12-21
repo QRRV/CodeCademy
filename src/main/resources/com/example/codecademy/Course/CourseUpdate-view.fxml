@@ -16,12 +16,14 @@
                   <Font size="25.0" />
                </font>
             </Label>
+            <Label layoutX="46.0" layoutY="38.0" prefHeight="38.0" prefWidth="101.0" text="Kies een course" />
             <Label layoutX="46.0" layoutY="82.0" prefHeight="38.0" prefWidth="101.0" text="Course" />
             <Label layoutX="46.0" layoutY="130.0" prefHeight="38.0" prefWidth="101.0" text=" Subject" />
             <Label layoutX="46.0" layoutY="173.0" prefHeight="38.0" prefWidth="101.0" text=" Intro Text" />
             <Label layoutX="46.0" layoutY="213.0" prefHeight="38.0" prefWidth="101.0" text=" Level" />
             <Label layoutX="46.0" layoutY="262.0" prefHeight="38.0" prefWidth="101.0" text=" Interest" />
-            <ComboBox fx:id="cName" layoutX="194.0" layoutY="82.0" prefHeight="38.0" prefWidth="149.0" />
+            <ComboBox fx:id="cName" layoutX="194.0" layoutY="38.0" prefHeight="38.0" prefWidth="149.0" />
+            <TextField fx:id="newName" layoutX="194.0" layoutY="82.0" prefHeight="38.0" prefWidth="149.0" />
             <TextField fx:id="sub" layoutX="194.0" layoutY="130.0" prefHeight="38.0" prefWidth="149.0" />
             <TextField fx:id="introTxt" layoutX="194.0" layoutY="174.0" prefHeight="38.0" prefWidth="149.0" />
             <TextField fx:id="lvl" layoutX="194.0" layoutY="219.0" prefHeight="38.0" prefWidth="149.0" />

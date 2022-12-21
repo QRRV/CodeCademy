@@ -9,7 +9,8 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class studentController {
+public class registrationController {
+
     @FXML
     Stage stage;
 
@@ -23,28 +24,30 @@ public class studentController {
     }
 
     @FXML
-    protected void toStudent(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(studentController.class.getResource("Student/student-view.fxml"));
+    protected void toRegistration(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(studentController.class.getResource("Registration/registration-view.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(fxmlLoader.load(), 400, 300);
+        Scene scene = new Scene(fxmlLoader.load(), 800, 600);
         stage.setScene(scene);
         stage.show();
     }
 
     @FXML
-    protected void toCreateStudent(ActionEvent event) throws IOException{
-        FXMLLoader fxmlLoader = new FXMLLoader(studentController.class.getResource("Student/studentCreate-view.fxml"));
+    protected void toCreate(ActionEvent event) throws IOException{
+        FXMLLoader fxmlLoader = new FXMLLoader(studentController.class.getResource("Registration/registrationCreate-view.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(fxmlLoader.load(), 400, 450);
+        Scene scene = new Scene(fxmlLoader.load(), 800, 600);
         stage.setScene(scene);
         stage.show();
     }
 
     @FXML
-    protected void createStudent(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(studentController.class.getResource("Student/student-view.fxml"));
+    protected void createRegistration (ActionEvent event) throws IOException {
+
+
+        FXMLLoader fxmlLoader = new FXMLLoader(studentController.class.getResource("Registration/registration-view.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(fxmlLoader.load(), 400, 300);
+        Scene scene = new Scene(fxmlLoader.load(), 800, 600);
         stage.setScene(scene);
         stage.show();
     }
