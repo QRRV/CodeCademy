@@ -8,6 +8,9 @@ public class Student {
     private String name;
     private Date birthDay;
 
+
+    private String gender;
+
     public Date getBirthDay() {
         return birthDay;
     }
@@ -16,24 +19,9 @@ public class Student {
         this.birthDay = birthDay;
     }
 
-    private String gender;
-    private Address address;
-    private ArrayList<Registration> registrations = new ArrayList<>();
 
     public String getEmailAddress() {
         return emailAddress;
-    }
-
-    public ArrayList<Registration> getRegistrations() {
-        return registrations;
-    }
-
-    public void setRegistrations(ArrayList<Registration> registrations) {
-        this.registrations = registrations;
-    }
-
-    public void addRegistration(Registration registration) {
-        this.registrations.add(registration);
     }
 
     public void setEmailAddress(String emailAddress) {
@@ -56,11 +44,13 @@ public class Student {
         this.gender = gender;
     }
 
-    public Address getAddress() {
-        return address;
-    }
-
-    public void setAddress(Address address) {
-        this.address = address;
+    @Override
+    public String toString() {
+        return "Student{" +
+                "emailAddress='" + emailAddress + '\'' +
+                ", name='" + name + '\'' +
+                ", birthDay=" + birthDay +
+                ", gender='" + gender + '\'' +
+                '}';
     }
 }
