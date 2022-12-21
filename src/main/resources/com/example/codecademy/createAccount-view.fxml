@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.codecademy.studentController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+    </padding>
+    <HBox alignment="CENTER" spacing="20.0">
+        <Label minWidth="100" text="Emailadress"/>
+        <TextField fx:id="eMail"  maxHeight="70.0" maxWidth="200.0" />
+    </HBox>
+    <HBox alignment="CENTER" spacing="20.0">
+        <Label minWidth="100" text="Wachtwoord"/>
+        <TextField fx:id="password" maxHeight="70.0" maxWidth="200.0" />
+    </HBox>
+    <HBox alignment="CENTER" spacing="20.0">
+        <Label minWidth="100" text="Naam"/>
+        <TextField fx:id="Name"  maxHeight="70.0" maxWidth="200.0" />
+    </HBox>
+    <HBox alignment="CENTER" spacing="20.0">
+        <Label minWidth="100" text="Geboorte datum"/>
+        <TextField fx:id="birthDate"  maxHeight="70.0" maxWidth="200.0" />
+    </HBox>
+    <HBox alignment="CENTER" spacing="20.0">
+        <Label minWidth="100" text="Geslacht"/>
+        <ComboBox fx:id="sex" minWidth="150.0">
+            <items>
+            <FXCollections fx:factory="observableArrayList">
+                <String fx:value="Man"/>
+                <String fx:value="Vrouw"/>
+                <String fx:value="Overig"/>
+            </FXCollections>
+            </items>
+        </ComboBox>
+    </HBox>
+    <HBox alignment="CENTER" spacing="30.0">
+        <padding>
+            <Insets top="20.0"/>
+        </padding>
+        <Button minWidth="80" text="Terug" onAction="#toLogin"/>
+        <Button minWidth="80" text="Maken" onAction="#toMain"/>
+    </HBox>
+
+</VBox>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.codecademy.studentController">
+    <padding>
+        <Insets bottom="5.0" left="20.0" right="20.0" top="5.0"/>
+    </padding>
+    <Label fx:id="eMailL" text="Emailadress"/>
+    <TextField fx:id="eMail"  maxHeight="70.0" maxWidth="200.0" />
+    <Label fx:id="pass" text="Wachtwoord"/>
+    <TextField fx:id="password" maxHeight="70.0" maxWidth="200.0" />
+    <HBox alignment="CENTER" spacing="15.0">
+        <Button text="Log in" onAction="#toMain"/>
+        <Label text="Of"/>
+        <Button text="Account maken" onAction="#toCreateAccount"/>
+    </HBox>
+</VBox>

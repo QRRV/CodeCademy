@@ -66,6 +66,15 @@ public class courseController extends CourseRepository implements Initializable 
 
 
     @FXML
+    protected void toCourse(ActionEvent event) throws IOException{
+        FXMLLoader fxmlLoader = new FXMLLoader(courseController.class.getResource("Course/course-view.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(fxmlLoader.load(), 800, 600);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
     protected void toUpdate(ActionEvent event) throws IOException {
             FXMLLoader fxmlLoader = new FXMLLoader(courseController.class.getResource("Course/CourseUpdate-view.fxml"));
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
