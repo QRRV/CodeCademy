@@ -67,7 +67,7 @@ public class courseController extends CourseRepository implements Initializable 
 
     @FXML
     protected void toUpdate(ActionEvent event) throws IOException {
-            FXMLLoader fxmlLoader = new FXMLLoader(courseController.class.getResource("CourseUpdate-view.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(courseController.class.getResource("Course/CourseUpdate-view.fxml"));
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             Scene scene = new Scene(fxmlLoader.load(), 511, 600);
             stage.setScene(scene);
@@ -76,7 +76,7 @@ public class courseController extends CourseRepository implements Initializable 
 
     @FXML
     protected void toCreate(ActionEvent event) throws IOException{
-        FXMLLoader fxmlLoader = new FXMLLoader(courseController.class.getResource("CourseCreate-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(courseController.class.getResource("Course/CourseCreate-view.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(fxmlLoader.load(), 511, 600);
         stage.setScene(scene);
@@ -85,7 +85,7 @@ public class courseController extends CourseRepository implements Initializable 
 
     @FXML
     protected void BackToCourse(ActionEvent event) throws IOException{
-        FXMLLoader fxmlLoader = new FXMLLoader(courseController.class.getResource("course-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(courseController.class.getResource("Course/course-view.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(fxmlLoader.load(), 800, 600);
         stage.setScene(scene);
@@ -125,7 +125,7 @@ public class courseController extends CourseRepository implements Initializable 
                 System.out.println("Problem occurred at createCourse operation : " + ex);
             }
 
-            FXMLLoader fxmlLoader = new FXMLLoader(courseController.class.getResource("course-view.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(courseController.class.getResource("Cousrse/course-view.fxml"));
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(fxmlLoader.load(), 800, 600);
             stage.setScene(scene);
@@ -148,7 +148,7 @@ public class courseController extends CourseRepository implements Initializable 
             } else {
                 CourseRepository.updateCourse((String) cName.getSelectionModel().getSelectedItem(), sub.getText(), lvl.getText(), introTxt.getText(), "");
             }
-            FXMLLoader fxmlLoader = new FXMLLoader(courseController.class.getResource("course-view.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(courseController.class.getResource("Course/course-view.fxml"));
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(fxmlLoader.load(), 800, 600);
             stage.setScene(scene);
