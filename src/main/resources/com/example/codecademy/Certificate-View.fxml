@@ -30,11 +30,11 @@
         <Button text="Delete" onAction="#deleteCertificate"/>
     </HBox>
 
-    <TableView fx:id="tableView" prefWidth="760" maxWidth="760">
+    <TableView fx:id="tableView" prefWidth="600" maxWidth="600">
         <columns>
-            <TableColumn fx:id="certificateId" prefWidth="150" text="CertificateId"/>
-            <TableColumn fx:id="grade" prefWidth="150" text="Grade"/>
-            <TableColumn fx:id="nameEmployer" prefWidth="125" text="Name Employer"/>
+            <TableColumn fx:id="certificateID" prefWidth="200" text="CertificateId"/>
+            <TableColumn fx:id="grade" prefWidth="200" text="Grade"/>
+            <TableColumn fx:id="nameEmployer" prefWidth="200" text="Name Employer"/>
 
         </columns>
     </TableView>
