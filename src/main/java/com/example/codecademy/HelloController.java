@@ -17,7 +17,7 @@ public class HelloController {
 
     @FXML
     protected void onHelloButtonClick(ActionEvent event) throws IOException{
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloController.class.getResource("course-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloController.class.getResource("Course/course-view.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(fxmlLoader.load(), 800, 600);
         stage.setScene(scene);
