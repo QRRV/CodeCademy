@@ -26,13 +26,13 @@
         </padding>
         <Button text="Terug" onAction="#toMain"/>
         <Button text="Create" onAction="#toCreate"/>
-        <!--        <Button text="Bewerk" onAction="#toUpdate"/>-->
+        <Button text="Bewerk" onAction="#toUpdate"/>
         <!--        <Button text="Verwijder" onAction="#deleteCourse"/>-->
     </HBox>
 
     <TableView fx:id="tableView" prefWidth="600" maxWidth="600">
         <columns>
-            <TableColumn fx:id="courseName" prefWidth="150" text="Cours naam"/>
+            <TableColumn fx:id="courseName" prefWidth="150" text="Course naam"/>
             <TableColumn fx:id="emailAddress" prefWidth="150" text="Emailadres"/>
             <TableColumn fx:id="registrationDate" prefWidth="150" text="Registratie datum"/>
             <TableColumn fx:id="certificateID" prefWidth="150" text="Certificaat ID"/>

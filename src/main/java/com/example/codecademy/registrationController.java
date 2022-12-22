@@ -36,13 +36,33 @@ public class registrationController {
     protected void toCreate(ActionEvent event) throws IOException{
         FXMLLoader fxmlLoader = new FXMLLoader(studentController.class.getResource("Registration/registrationCreate-view.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(fxmlLoader.load(), 800, 600);
+        Scene scene = new Scene(fxmlLoader.load(), 511, 600);
         stage.setScene(scene);
         stage.show();
     }
 
     @FXML
     protected void createRegistration (ActionEvent event) throws IOException {
+
+
+        FXMLLoader fxmlLoader = new FXMLLoader(studentController.class.getResource("Registration/registration-view.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(fxmlLoader.load(), 800, 600);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    protected void toUpdate(ActionEvent event) throws IOException{
+        FXMLLoader fxmlLoader = new FXMLLoader(studentController.class.getResource("Registration/registrationUpdate-view.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(fxmlLoader.load(), 511, 600);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    protected void updateRegistration (ActionEvent event) throws IOException {
 
 
         FXMLLoader fxmlLoader = new FXMLLoader(studentController.class.getResource("Registration/registration-view.fxml"));
