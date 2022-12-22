@@ -50,7 +50,7 @@ public class AddressRepository {
             }
             return addresses;
         } catch (SQLException e) {
-            System.out.println("While selecting all students, an error occurred: " + e);
+            System.out.println("While selecting all addresses, an error occurred: " + e);
             //Return exception
             try {
                 throw e;
@@ -79,7 +79,7 @@ public class AddressRepository {
             }
             return returningAddress;
         } catch (SQLException e) {
-            System.out.println("While selecting all students, an error occurred: " + e);
+            System.out.println("While selecting addresses by email, an error occurred: " + e);
             //Return exception
             try {
                 throw e;

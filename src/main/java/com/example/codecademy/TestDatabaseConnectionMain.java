@@ -2,9 +2,11 @@ package com.example.codecademy;
 
 import com.example.codecademy.Domain.Address;
 import com.example.codecademy.Domain.Course;
+import com.example.codecademy.Domain.Registration;
 import com.example.codecademy.Domain.Student;
 import com.example.codecademy.Repository.AddressRepository;
 import com.example.codecademy.Repository.CourseRepository;
+import com.example.codecademy.Repository.RegistrationRepository;
 import com.example.codecademy.Repository.StudentRepository;
 
 import java.sql.Date;
@@ -44,5 +46,20 @@ public class TestDatabaseConnectionMain {
 //            System.out.println(address.toString());
 //        });
 //        System.out.println(AddressRepository.getAddressByEmail("test@gmail.com"));
+
+        //RegistrationRepo
+//        RegistrationRepository.createRegistration("matthijs@gmail.com", "wiskunde", "2022-12-21", null);
+//        ArrayList<Registration> registrations2 = RegistrationRepository.getRegistrations();
+//        registrations2.forEach(address -> {
+//            System.out.println(address.toString());
+//        });
+//        RegistrationRepository.updateRegistration("matthijs@gmail.com","matthijs@gmail.com", "c", "2022-12-22");
+//        RegistrationRepository.deleteRegistration("matthijs@gmail.com", "c", "2022-12-22");
+//        ArrayList<Registration> registrations = RegistrationRepository.getRegistrations();
+//        registrations.forEach(address -> {
+//            System.out.println(address.toString());
+//        });
+//        System.out.println(RegistrationRepository.getRegistrationsByEmail("quinn@gmail.com"));
+
     }
 }
