@@ -3,6 +3,7 @@
 package com.example.codecademy.Domain;
 
 public class Address {
+    private String emailAddress;
     private String streetName;
     private String city;
     private String zipCode;
@@ -56,5 +57,26 @@ public class Address {
 
     public void setCountry(String country) {
         this.country = country;
+    }
+
+    public String getEmailAddress() {
+        return emailAddress;
+    }
+
+    public void setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
+    }
+
+    @Override
+    public String toString() {
+        return "Address{" +
+                "emailAddress='" + emailAddress + '\'' +
+                ", streetName='" + streetName + '\'' +
+                ", city='" + city + '\'' +
+                ", zipCode='" + zipCode + '\'' +
+                ", houseNumber=" + houseNumber +
+                ", houseNumberAdd='" + houseNumberAdd + '\'' +
+                ", country='" + country + '\'' +
+                '}';
     }
 }
