@@ -3,41 +3,50 @@ package com.example.codecademy.Domain;
 import java.util.ArrayList;
 import java.util.Date;
 public class Registration {
-    private Date registrationate;
-    private ArrayList<Student> emailAddress = new ArrayList<>();
-    private Course course;
-    private Student student;
-
-    public Student getStudent() {
-        return student;
+    private Date registrationDate;
+    private String emailAddress;
+    private String courseName;
+    private int certificateID;
+    public Date getRegistrationDate() {
+        return registrationDate;
     }
 
-    public void setStudent(Student student) {
-        this.student = student;
+    public void setRegistrationDate(Date registrationDate) {
+        this.registrationDate = registrationDate;
     }
 
-    public Course getCourse() {
-        return course;
-    }
-
-    public void setCourse(Course course) {
-        this.course = course;
-    }
-
-    public ArrayList<Student> getEmailAddress() {
+    public String getEmailAddress() {
         return emailAddress;
     }
 
-    public void setEmailAddress(ArrayList<Student> emailAddress) {
+    public void setEmailAddress(String emailAddress) {
         this.emailAddress = emailAddress;
     }
 
-    public Date getRegistrationate() {
-        return registrationate;
+    public String getCourseName() {
+        return courseName;
     }
 
-    public void setRegistrationate(Date registrationate) {
-        this.registrationate = registrationate;
+    public void setCourseName(String courseName) {
+        this.courseName = courseName;
     }
 
+    public int getCertificateID() {
+        return certificateID;
+    }
+
+    public void setCertificateID(int certificateID) {
+        this.certificateID = certificateID;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Registration{" +
+                "registrationDate=" + registrationDate +
+                ", emailAddress='" + emailAddress + '\'' +
+                ", courseName='" + courseName + '\'' +
+                ", certificateID=" + certificateID +
+                '}';
+    }
 }
