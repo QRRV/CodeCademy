@@ -161,7 +161,7 @@ public class courseController extends CourseRepository implements Initializable 
             stage.setScene(scene);
             stage.show();
         }else {
-            System.out.println("Course name is verplicht");
+            System.out.println("Kies een course of ga terug");
         }
     }
 

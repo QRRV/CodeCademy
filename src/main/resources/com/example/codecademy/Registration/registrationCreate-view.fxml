@@ -18,12 +18,10 @@
                 </Label>
                 <Label layoutX="46.0" layoutY="82.0" prefHeight="38.0" prefWidth="101.0" text="Course naam" />
                 <Label layoutX="46.0" layoutY="130.0" prefHeight="38.0" prefWidth="101.0" text="Emailadres" />
-<!--                <Label layoutX="46.0" layoutY="173.0" prefHeight="38.0" prefWidth="101.0" text="Registratie datum" />-->
-                <Label layoutX="46.0" layoutY="213.0" prefHeight="38.0" prefWidth="101.0" text="Certificaat ID" />
+                <Label layoutX="46.0" layoutY="173.0" prefHeight="38.0" prefWidth="101.0" text="Certificaat ID" />
                 <TextField fx:id="cname" layoutX="194.0" layoutY="82.0" prefHeight="38.0" prefWidth="149.0" />
                 <TextField fx:id="eMail" layoutX="194.0" layoutY="130.0" prefHeight="38.0" prefWidth="149.0" />
-<!--                <TextField fx:id="registrationDate" layoutX="194.0" layoutY="174.0" prefHeight="38.0" prefWidth="149.0" />-->
-                <TextField fx:id="certificateID" layoutX="194.0" layoutY="219.0" prefHeight="38.0" prefWidth="149.0" />
+                <TextField fx:id="certificateId" layoutX="194.0" layoutY="174.0" prefHeight="38.0" prefWidth="149.0" />
                 <Button layoutX="270.0" layoutY="327.0" mnemonicParsing="false" onAction="#createRegistration" prefHeight="38.0" prefWidth="101.0" text="Bevestig" />
                 <Button layoutX="150.0" layoutY="327.0" mnemonicParsing="false" onAction="#toRegistration" prefHeight="38.0" prefWidth="101.0" text="Terug" />
             </children>
