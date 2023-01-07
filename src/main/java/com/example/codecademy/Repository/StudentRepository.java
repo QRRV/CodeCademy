@@ -109,4 +109,23 @@ public class StudentRepository {
         }
 
     }
+    public static boolean Percentage(String studentEmail){
+        String updateStmt =
+                "SELECT percentage FROM contentItemProgress WHERE  emailAddress = '" + studentEmail+ "'";
+        //Execute UPDATE operation
+        try {
+            DbUtil.dbExecuteUpdate(updateStmt);
+            return true;
+        } catch (SQLException e) {
+            System.out.print("Error occurred while DELETE Operation: " + e);
+            try {
+                throw e;
+            } catch (SQLException ex) {
+                throw new RuntimeException(ex);
+            }
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
 }

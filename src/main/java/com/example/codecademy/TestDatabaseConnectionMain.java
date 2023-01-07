@@ -32,8 +32,8 @@ public class TestDatabaseConnectionMain {
 //        });
 
         //StudentRepo
-//        StudentRepository.deleteStudent("test2@gmail.com");
-//        StudentRepository.createStudent("test2@gmail.com", "Matthijs", "2001-11-11", "m");
+//       StudentRepository.deleteStudent("test2@gmail.com");
+ //       StudentRepository.createStudent("test2@gmail.com", "Matthijs", "2001-11-11", "m");
 //        StudentRepository.updateStudent("test2@gmail.com", "test@gmail.com", "Quinn", "2001-11-11", "m");
 //        ArrayList<Student> students = StudentRepository.getStudents();
 //
@@ -60,6 +60,7 @@ public class TestDatabaseConnectionMain {
 //            System.out.println(address.toString());
 //        });
 //        System.out.println(RegistrationRepository.getRegistrationsByEmail("quinn@gmail.com"));
+          System.out.println(StudentRepository.Percentage("spongebob@gmail.com"));
 
     }
 }
