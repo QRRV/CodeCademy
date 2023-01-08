@@ -27,7 +27,7 @@
         <Button text="Terug" onAction="#toMain"/>
         <Button text="Create" onAction="#toCreate"/>
         <Button text="Bewerk" onAction="#toUpdate"/>
-<!--        <Button text="Verwijder" onAction="#deleteCourse"/>-->
+        <Button text="Verwijder" onAction="#deleteStudent"/>
     </HBox>
 
     <TableView fx:id="tableView" prefWidth="600" maxWidth="600">

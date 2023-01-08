@@ -7,8 +7,6 @@ public class Student {
     private String emailAddress;
     private String name;
     private Date birthDay;
-
-
     private String gender;
 
     public Date getBirthDay() {

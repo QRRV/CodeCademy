@@ -24,10 +24,10 @@
                 <Label layoutX="46.0" layoutY="173.0" prefHeight="38.0" prefWidth="101.0" text="Geboortedatum" />
                 <Label layoutX="46.0" layoutY="213.0" prefHeight="38.0" prefWidth="101.0" text="Geslacht" />
                 <ComboBox fx:id="studentBox" layoutX="194.0" layoutY="38.0" prefHeight="38.0" prefWidth="149.0" />
-                <TextField fx:id="emailAddress" layoutX="194.0" layoutY="82.0" prefHeight="38.0" prefWidth="149.0" />
+                <TextField fx:id="newEmail" layoutX="194.0" layoutY="82.0" prefHeight="38.0" prefWidth="149.0" />
                 <TextField fx:id="newName" layoutX="194.0" layoutY="130.0" prefHeight="38.0" prefWidth="149.0" />
-                <TextField fx:id="birthday" layoutX="194.0" layoutY="174.0" prefHeight="38.0" prefWidth="149.0" />
-                <ComboBox fx:id="gender" prefWidth="149.0" prefHeight="38.0" layoutX="194.0" layoutY="213.0">
+                <TextField fx:id="newBirthday" layoutX="194.0" layoutY="174.0" prefHeight="38.0" prefWidth="149.0" />
+                <ComboBox fx:id="newGender" prefWidth="149.0" prefHeight="38.0" layoutX="194.0" layoutY="213.0">
                     <items>
                         <FXCollections fx:factory="observableArrayList">
                             <String fx:value="Man"/>

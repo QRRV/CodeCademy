@@ -20,12 +20,12 @@
                 </Label>
                 <Label layoutX="46.0" layoutY="82.0" prefHeight="38.0" prefWidth="101.0" text="Emailadres" />
                 <Label layoutX="46.0" layoutY="130.0" prefHeight="38.0" prefWidth="101.0" text="Naam" />
-                <Label layoutX="46.0" layoutY="173.0" prefHeight="38.0" prefWidth="101.0" text="Geboortedatum" />
+                <Label layoutX="46.0" layoutY="173.0" prefHeight="38.0" prefWidth="180.0" text="Geboortedatum (yyyy-mm-dd)" />
                 <Label layoutX="46.0" layoutY="213.0" prefHeight="38.0" prefWidth="101.0" text="Geslacht" />
-                <TextField fx:id="eMail" layoutX="194.0" layoutY="82.0" prefHeight="38.0" prefWidth="149.0" />
-                <TextField fx:id="name" layoutX="194.0" layoutY="130.0" prefHeight="38.0" prefWidth="149.0" />
-                <TextField fx:id="birthday" layoutX="194.0" layoutY="174.0" prefHeight="38.0" prefWidth="149.0" />
-                <ComboBox fx:id="gender" prefWidth="149.0" prefHeight="38.0" layoutX="194.0" layoutY="218.0">
+                <TextField fx:id="email" layoutX="220.0" layoutY="82.0" prefHeight="38.0" prefWidth="149.0" />
+                <TextField fx:id="name" layoutX="220.0" layoutY="130.0" prefHeight="38.0" prefWidth="149.0" />
+                <TextField fx:id="birthday" layoutX="220.0" layoutY="174.0" prefHeight="38.0" prefWidth="149.0" />
+                <ComboBox fx:id="gender" prefWidth="149.0" prefHeight="38.0" layoutX="220.0" layoutY="218.0">
                     <items>
                         <FXCollections fx:factory="observableArrayList">
                             <String fx:value="Man"/>
