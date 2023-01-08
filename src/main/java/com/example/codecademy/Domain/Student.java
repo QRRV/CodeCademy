@@ -10,6 +10,7 @@ public class Student {
 
 
     private String gender;
+    private int Percentage;
 
     public Date getBirthDay() {
         return birthDay;
@@ -44,6 +45,14 @@ public class Student {
         this.gender = gender;
     }
 
+    public int getPercentage() {
+        return Percentage;
+    }
+
+    public void setPercentage(int percentage) {
+        Percentage = percentage;
+    }
+
     @Override
     public String toString() {
         return "Student{" +
@@ -51,6 +60,9 @@ public class Student {
                 ", name='" + name + '\'' +
                 ", birthDay=" + birthDay +
                 ", gender='" + gender + '\'' +
+                ", percentage='" + Percentage + '\'' +
                 '}';
     }
+
+
 }

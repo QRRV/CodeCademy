@@ -60,7 +60,9 @@ public class TestDatabaseConnectionMain {
 //            System.out.println(address.toString());
 //        });
 //        System.out.println(RegistrationRepository.getRegistrationsByEmail("quinn@gmail.com"));
+        System.out.println("----------");
           System.out.println(StudentRepository.Percentage("spongebob@gmail.com"));
+        System.out.println("------------dscs");
 
     }
 }

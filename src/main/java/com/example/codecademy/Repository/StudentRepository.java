@@ -109,15 +109,18 @@ public class StudentRepository {
         }
 
     }
-    public static boolean Percentage(String studentEmail){
-        String updateStmt =
-                "SELECT percentage FROM contentItemProgress WHERE  emailAddress = '" + studentEmail+ "'";
+    public static Student Percentage(String studentEmail){
+        String selectStmt =
+                        "SELECT * FROM contentItemProgress WHERE  emailAddress = '" + studentEmail+ "'";
         //Execute UPDATE operation
+
         try {
-            DbUtil.dbExecuteUpdate(updateStmt);
-            return true;
+            ResultSet rsEmp = DbUtil.dbExecuteQuery(selectStmt);
+            Student student = new Student();
+            student.setEmailAddress(rsEmp.getString("emailAddress"));
+            return student;
         } catch (SQLException e) {
-            System.out.print("Error occurred while DELETE Operation: " + e);
+            System.out.print("Error occurred while Update Operation: " + e);
             try {
                 throw e;
             } catch (SQLException ex) {
