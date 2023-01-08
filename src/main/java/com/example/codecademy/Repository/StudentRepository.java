@@ -109,18 +109,19 @@ public class StudentRepository {
         }
 
     }
-    public static Student Percentage(String studentEmail){
-        String selectStmt =
-                        "SELECT * FROM contentItemProgress WHERE  emailAddress = '" + studentEmail+ "'";
-        //Execute UPDATE operation
+    public static String getPercentage(String studentEmail) {
+        String selectStmt = "SELECT * FROM contentItemProgress WHERE  emailAddress = '" + studentEmail+ "'";;
 
         try {
             ResultSet rsEmp = DbUtil.dbExecuteQuery(selectStmt);
-            Student student = new Student();
-            student.setEmailAddress(rsEmp.getString("emailAddress"));
-            return student;
+            String percentage = "";
+            while (rsEmp.next()) {
+                percentage = rsEmp.getString("Percentage");
+            }
+            return percentage;
         } catch (SQLException e) {
-            System.out.print("Error occurred while Update Operation: " + e);
+            System.out.println("While getting percentage, an error occurred: " + e);
+            //Return exception
             try {
                 throw e;
             } catch (SQLException ex) {
@@ -129,6 +130,5 @@ public class StudentRepository {
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
-
     }
 }
