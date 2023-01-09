@@ -132,7 +132,7 @@ public class courseController extends CourseRepository implements Initializable 
                 System.out.println("Problem occurred at createCourse operation : " + ex);
             }
 
-            FXMLLoader fxmlLoader = new FXMLLoader(courseController.class.getResource("Cousrse/course-view.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(courseController.class.getResource("Course/course-view.fxml"));
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(fxmlLoader.load(), 800, 600);
             stage.setScene(scene);
