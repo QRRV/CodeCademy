@@ -18,6 +18,7 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -25,6 +26,8 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import com.example.codecademy.Test.Validation;
+import javafx.stage.Window;
 
 public class studentController extends StudentRepository implements Initializable {
     @FXML
@@ -89,12 +92,15 @@ public class studentController extends StudentRepository implements Initializabl
 
     @FXML
     protected void toCreate(ActionEvent event) throws IOException{
-        FXMLLoader fxmlLoader = new FXMLLoader(studentController.class.getResource("Student/studentCreate-view.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(fxmlLoader.load(), 511, 600);
-        stage.setScene(scene);
-        stage.show();
+            FXMLLoader fxmlLoader = new FXMLLoader(studentController.class.getResource("Student/studentCreate-view.fxml"));
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(fxmlLoader.load(), 511, 600);
+            stage.setScene(scene);
+            stage.show();
+
     }
+
+
     @FXML
     protected void toUpdate(ActionEvent event) throws IOException{
         FXMLLoader fxmlLoader = new FXMLLoader(studentController.class.getResource("Student/studentUpdate-view.fxml"));
@@ -122,13 +128,16 @@ public class studentController extends StudentRepository implements Initializabl
 
     @FXML
     protected void createStudent(ActionEvent event) throws IOException {
+        if(Validation.validateEmail(email.getText())){
         StudentRepository.createStudent(email.getText(), name.getText(), birthday.getText(), (String) gender.getSelectionModel().getSelectedItem());
-
         FXMLLoader fxmlLoader = new FXMLLoader(studentController.class.getResource("Student/student-view.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(fxmlLoader.load(), 800, 600);
         stage.setScene(scene);
         stage.show();
+        }else{
+            Validation.showAlert(Alert.AlertType.ERROR, "Form Error!", "Please add a valid email");
+        }
     }
 
     @FXML
