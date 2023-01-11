@@ -59,12 +59,10 @@ public class courseController extends CourseRepository implements Initializable 
 
     ArrayList<String> items = new ArrayList<String>();
     ObservableList<String> oListName;
-    ObservableList<String> oListTitles;
     ObservableList<Course> oListCourses;
     ArrayList<Course> selItem;
-    ArrayList<String> selectableTitles;
     ArrayList<String> names = new ArrayList<String>();
-    ArrayList<String> mTitles = new ArrayList<String>();
+    ObservableList<String> selectedTitles;
 
     @FXML
     private Stage stage;
@@ -130,8 +128,10 @@ public class courseController extends CourseRepository implements Initializable 
             try {
                 if (recCourse.getSelectionModel().getSelectedItem() == null) {
                     CourseRepository.createCourse(cname.getText(), sub.getText(), lvl.getText(), introTxt.getText(), "");
+                    createContentItem();
                 } else {
                     CourseRepository.createCourse(cname.getText(), sub.getText(), lvl.getText(), introTxt.getText(), (String) recCourse.getSelectionModel().getSelectedItem());
+                    createContentItem();
                 }
             } catch (Exception ex) {
                 System.out.println("Problem occurred at createCourse operation : " + ex);
@@ -142,6 +142,19 @@ public class courseController extends CourseRepository implements Initializable 
             Scene scene = new Scene(fxmlLoader.load(), 800, 600);
             stage.setScene(scene);
             stage.show();
+        }
+    }
+
+    @FXML
+    protected void createContentItem() throws IOException{
+        selectedTitles = md.getSelectionModel().getSelectedItems();
+        System.out.println(selectedTitles.get(0));
+        if(!selectedTitles.isEmpty()){
+            selectedTitles.forEach(title ->{
+                CourseRepository.createContentItem(cname.getText(), CourseRepository.getModuleID(title));
+            });
+        } else {
+            CourseRepository.createContentItem(cname.getText(), 1);
         }
     }
 

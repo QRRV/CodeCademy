@@ -3,7 +3,10 @@ import com.example.codecademy.Domain.*;
 
 import java.sql.ResultSet;
 import java.sql.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class CourseRepository {
     public static boolean deleteCourse(String courseID){
@@ -97,6 +100,29 @@ public class CourseRepository {
         }
     }
 
+    public static Integer getModuleID(String mTitle) {
+        String selectStmt = "SELECT moduleID FROM module WHERE title='"+ mTitle +"'";
+        try {
+            //Get ResultSet from dbExecuteQuery method
+            ResultSet rsMod = DbUtil.dbExecuteQuery(selectStmt);
+            Integer returningModuleID = 1;
+            while (rsMod.next()) {
+                returningModuleID = rsMod.getInt("moduleID");
+            }
+            return returningModuleID;
+        } catch (SQLException e) {
+            System.out.println("While selecting all modules, an error occurred: " + e);
+            //Return exception
+            try {
+                throw e;
+            } catch (SQLException ex) {
+                throw new RuntimeException(ex);
+            }
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 //    public static ArrayList<Course> getRecCourses() {
 //        String selectStmt = "SELECT * FROM recommendedCourse";
 //        //Execute SELECT statement
@@ -127,6 +153,25 @@ public class CourseRepository {
 //            throw new RuntimeException(e);
 //        }
 //    }
+
+    public static boolean createContentItem(String courseName, Integer moduleID){
+        String updateStmt =
+                "BEGIN\n" + "INSERT INTO [content-item] (status, courseName, moduleID) VALUES('Active','"+ courseName + "','" + moduleID + "')\n"+
+                        "END;";
+        try {
+            DbUtil.dbExecuteUpdate(updateStmt);
+            return true;
+        } catch (SQLException e) {
+            System.out.print("Error occurred while executing query: " + e);
+            try {
+                throw e;
+            } catch (SQLException ex) {
+                throw new RuntimeException(ex);
+            }
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     public static boolean createCourse(String courseID, String subject, String status, String introductionText, String recommendation) {
         String updateStmt =
