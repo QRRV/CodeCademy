@@ -72,6 +72,31 @@ public class CourseRepository {
         }
     }
 
+    public static ArrayList<String> getModulesTitle() {
+        String selectStmt = "SELECT * FROM module";
+        try {
+            //Get ResultSet from dbExecuteQuery method
+            ResultSet rsMod = DbUtil.dbExecuteQuery(selectStmt);
+            ArrayList<String> modulesTitle = new ArrayList<>();
+            while (rsMod.next()) {
+                String returningModule;
+                returningModule = rsMod.getString("title");
+                modulesTitle.add(returningModule);
+            }
+            return modulesTitle;
+        } catch (SQLException e) {
+            System.out.println("While selecting all modules, an error occurred: " + e);
+            //Return exception
+            try {
+                throw e;
+            } catch (SQLException ex) {
+                throw new RuntimeException(ex);
+            }
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 //    public static ArrayList<Course> getRecCourses() {
 //        String selectStmt = "SELECT * FROM recommendedCourse";
 //        //Execute SELECT statement

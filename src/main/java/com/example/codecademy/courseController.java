@@ -21,7 +21,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import java.sql.ResultSet;
+
 import java.sql.*;
 
 public class courseController extends CourseRepository implements Initializable {
@@ -51,15 +51,20 @@ public class courseController extends CourseRepository implements Initializable 
     @FXML
     private ComboBox recCourse = new ComboBox<>();
 
+    @FXML
+    private ListView<String> md = new ListView<String>();
+
     String item;
     String[] name;
 
     ArrayList<String> items = new ArrayList<String>();
     ObservableList<String> oListName;
-
+    ObservableList<String> oListTitles;
     ObservableList<Course> oListCourses;
     ArrayList<Course> selItem;
+    ArrayList<String> selectableTitles;
     ArrayList<String> names = new ArrayList<String>();
+    ArrayList<String> mTitles = new ArrayList<String>();
 
     @FXML
     private Stage stage;
@@ -195,6 +200,7 @@ public class courseController extends CourseRepository implements Initializable 
              cName.setItems(oListName);
              recCourse.setItems(oListName);
          }
+         md.setItems(FXCollections.observableArrayList(CourseRepository.getModulesTitle()));
      }
 }
 
